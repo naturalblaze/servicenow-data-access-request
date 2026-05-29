@@ -1,0 +1,66 @@
+[project]
+name = "servicenow-data-access-request"
+version = "0.1.0"
+description = "A PyQt5-based GUI application for sending scheduled API requests to ServiceNow forms/tables. This tool allows you to configure and automate periodic data submissions to ServiceNow instances."
+dynamic = ["readme"]
+authors = [
+    { name="Blaze Bryant", email="naturalblaze@gmail.com" },
+]
+maintainers = [
+    { name="Blaze Bryant", email="naturalblaze@gmail.com" },
+]
+requires-python = ">=3.12"
+dependencies = [
+    "apscheduler==3.10.4",
+    "pyqt5==5.15.9",
+    "python-dotenv==1.0.0",
+    "requests==2.31.0",
+]
+
+[project.urls]
+Documentation = "https://github.com/naturalblaze/servicenow-data-access-request/blob/main/README.md"
+Source = "https://github.com/naturalblaze/servicenow-data-access-request"
+Tracker = "https://github.com/naturalblaze/servicenow-data-access-request/issues"
+
+[tool.bandit]
+skips = []
+exclude_dirs = ["tests"]
+
+[tool.black]
+line-length = 120
+target-version = ["py312"]
+
+[tool.mypy]
+exclude = [
+    "tests"
+]
+
+[tool.pylint.main]
+# Use multiple processes to speed up Pylint
+jobs = 0 
+# Files or directories to skip (base names only)
+ignore = ["tests"]
+
+[tool.pylint.messages_control]
+# Disable specific warnings or errors
+disable = [
+    "C0114", # missing-module-docstring
+    "C0116", # missing-function-docstring
+]
+
+[tool.pylint.format]
+max-line-length = 120
+
+[dependency-groups]
+dev = [
+    "black==23.12.0",
+    "coverage==7.3.2",
+    "flake8==6.1.0",
+    "mypy==1.7.1",
+    "pylint==3.0.3",
+    "pytest==7.4.3",
+    "pytest-cov==4.1.0",
+    "pytest-fixtures==0.1.0",
+    "pytest-mock==3.12.0",
+    "types-requests>=2.33.0.20260518",
+]
